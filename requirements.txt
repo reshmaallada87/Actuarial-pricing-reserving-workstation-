@@ -1,0 +1,50 @@
+# reserving.py
+
+def calculate_reserve(claim_type: str, estimated_repair_cost: float) -> dict:
+    """
+    Estimates outstanding claim reserves based on claim type and repair cost.
+    
+    Rules:
+    - Minor: max(repair_cost, ₹15,000)
+    - Moderate: max(repair_cost, ₹40,000)
+    - Major: max(repair_cost, ₹75,000)
+    """
+    claim_type_lower = claim_type.lower()
+    
+    if "minor" in claim_type_lower:
+        min_reserve = 15000.0
+        severity_label = "Minor Claim"
+    elif "moderate" in claim_type_lower:
+        min_reserve = 40000.0
+        severity_label = "Moderate Claim"
+    elif "major" in claim_type_lower:
+        min_reserve = 75000.0
+        severity_label = "Major Claim"
+    else:
+        # Default fallback
+        min_reserve = 15000.0
+        severity_label = "General Claim (defaulted to Minor)"
+        
+    reserve_amount = max(estimated_repair_cost, min_reserve)
+    
+    # Generate rationale
+    if estimated_repair_cost >= min_reserve:
+        rationale = (
+            f"The outstanding claim reserve is set to ₹{reserve_amount:,.2f} because the estimated "
+            f"repair cost (₹{estimated_repair_cost:,.2f}) exceeds the minimum regulatory baseline "
+            f"reserve of ₹{min_reserve:,.2f} specified for a {severity_label}."
+        )
+    else:
+        rationale = (
+            f"The outstanding claim reserve is set to the regulatory minimum baseline of ₹{min_reserve:,.2f} "
+            f"for a {severity_label}, as the reported estimated repair cost of ₹{estimated_repair_cost:,.2f} "
+            f"falls below this threshold to protect against tail risk and potential scope increase."
+        )
+        
+    return {
+        "claim_type": claim_type,
+        "estimated_repair_cost": estimated_repair_cost,
+        "minimum_reserve_threshold": min_reserve,
+        "reserve_amount": reserve_amount,
+        "rationale": rationale
+    }
