@@ -1,12 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Actuarial Pricing & Reserving Workstation
 
-# Run and deploy your AI Studio app
+## Overview
 
-This contains everything you need to run your app locally.
+The **Actuarial Pricing & Reserving Workstation** is an AI-powered full-stack insurance application designed to streamline actuarial pricing, claims reserving, and portfolio risk analysis. The platform also includes an intelligent chatbot to provide insurance-related guidance and explanations.
 
-View your app in AI Studio: https://ai.studio/apps/2bd6e934-166c-4e05-9ee2-470b97ff0b58
+## Features
+
+* Premium Pricing Module
+* Claims Reserving Module
+* Portfolio Risk Dashboard
+* AI-powered Insurance Chatbot
+* Pricing and Reserving Narratives
+* User-friendly Interface
+
+## Technology Stack
+
+* **Frontend:** React, TypeScript
+* **Backend:** Node.js, Python
+* **AI Integration:** Google Gemini API
+
+## Application Workflow
+
+1. User selects a module.
+2. User enters the required information.
+3. System validates the inputs.
+4. AI processes the request.
+5. Insurance logic is applied.
+6. Results and explanations are displayed.
+
+## Future Enhancements
+
+* Generalized Linear Models (GLMs) for premium prediction.
+* IBNR estimation using Chain Ladder and Bornhuetter–Ferguson methods.
+* Loss Development Triangles.
+* AI-based vehicle damage assessment using image analysis.
+
 
 ## Run Locally
 
